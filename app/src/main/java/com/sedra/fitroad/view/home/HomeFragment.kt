@@ -51,9 +51,6 @@ class HomeFragment : Fragment() {
             include.trainers.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_trainersFragment)
             }
-            include.trainers.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_trainersFragment)
-            }
             include.exercises.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_blankFragment)
             }

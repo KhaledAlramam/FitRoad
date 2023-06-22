@@ -48,7 +48,13 @@ class ExercisesFragment : Fragment() {
                 LinearLayoutManager.VERTICAL, false)
             trainersRv.adapter = adapter
             include.moreIcon.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_moreFragment)
+                findNavController().navigate(R.id.action_blankFragment_to_moreFragment)
+            }
+            include.homeIcon.setOnClickListener {
+                findNavController().navigate(R.id.action_blankFragment_to_homeFragment)
+            }
+            include.trainers.setOnClickListener {
+                findNavController().navigate(R.id.action_blankFragment_to_trainersFragment)
             }
         }
         viewModel.getExercise()
