@@ -40,6 +40,9 @@ class StageOneFragment : Fragment() {
                 maleSelector.visibility = View.GONE
                 viewModel.gender = "Female"
             }
+            include.imageView4.setOnClickListener {
+                findNavController().popBackStack()
+            }
             button.setOnClickListener {
                 findNavController().navigate(R.id.action_stageOneFragment_to_stageTwoFragment)
             }

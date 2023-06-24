@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_startingFragment_to_stageOneFragment"
             app:destination="@id/stageOneFragment" />
+        <action
+            android:id="@+id/action_startingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/stageOneFragment"
@@ -77,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/uploadInBodyFragment"
-        android:name="com.sedra.fitroad.view.register.uploadinbody.UploadInBodyFragment"
+        android:name="com.sedra.fitroad.view.uploadinbodytwo.UploadInBodyFragment"
         android:label="fragment_upload_in_body"
         tools:layout="@layout/fragment_upload_in_body" >
         <action
@@ -113,6 +116,12 @@
             app:destination="@id/blankFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_exerciseDetailsFragment"
+            app:destination="@id/exerciseDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_foodSystemsFragment"
+            app:destination="@id/foodSystemsFragment" />
     </fragment>
     <fragment
         android:id="@+id/moreFragment"
@@ -137,6 +146,12 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/moreFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_moreFragment_to_contactUsFragment"
+            app:destination="@id/contactUsFragment" />
+        <action
+            android:id="@+id/action_moreFragment_to_uploadInBodyFragment2"
+            app:destination="@id/uploadInBodyFragment2" />
     </fragment>
     <fragment
         android:id="@+id/trainersFragment"
@@ -158,6 +173,9 @@
             app:destination="@id/blankFragment"
             app:popUpTo="@id/trainersFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_trainersFragment_to_trainerDetails"
+            app:destination="@id/trainerDetails" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment"
@@ -178,6 +196,58 @@
             android:id="@+id/action_blankFragment_to_trainersFragment"
             app:destination="@id/trainersFragment"
             app:popUpTo="@id/blankFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_blankFragment_to_exerciseDetailsFragment"
+            app:destination="@id/exerciseDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseDetailsFragment"
+        android:name="com.sedra.fitroad.ExerciseDetailsFragment"
+        android:label="fragment_exercise_details"
+        tools:layout="@layout/fragment_exercise_details" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.sedra.fitroad.view.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodSystemsFragment"
+        android:name="com.sedra.fitroad.FoodSystemsFragment"
+        android:label="fragment_food_systems"
+        tools:layout="@layout/fragment_food_systems" />
+    <fragment
+        android:id="@+id/trainerDetails"
+        android:name="com.sedra.fitroad.TrainerDetails"
+        android:label="fragment_trainer_details"
+        tools:layout="@layout/fragment_trainer_details" />
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.sedra.fitroad.ContactUsFragment"
+        android:label="fragment_contact_us"
+        tools:layout="@layout/fragment_contact_us" />
+    <fragment
+        android:id="@+id/uploadInBodyFragment2"
+        android:name="com.sedra.fitroad.view.register.uploadinbody.UploadInBodyFragment"
+        android:label="UploadInBodyFragment" >
+        <action
+            android:id="@+id/action_uploadInBodyFragment2_to_inBodyResultTwoFragment"
+            app:destination="@id/inBodyResultTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inBodyResultTwoFragment"
+        android:name="com.sedra.fitroad.view.uploadinbodytwo.InBodyResultTwoFragment"
+        android:label="InBodyResultTwoFragment" >
+        <action
+            android:id="@+id/action_inBodyResultTwoFragment_to_moreFragment"
+            app:destination="@id/moreFragment"
+            app:popUpTo="@id/inBodyResultTwoFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

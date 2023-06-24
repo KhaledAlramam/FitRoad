@@ -37,6 +37,21 @@ class MoreFragment : Fragment() {
                 preferences.edit().clear().apply()
                 findNavController().navigate(R.id.action_moreFragment_to_startingFragment)
             }
+            include.homeIcon.setOnClickListener{
+                findNavController().navigate(R.id.action_moreFragment_to_homeFragment)
+            }
+            include.exercises.setOnClickListener{
+                findNavController().navigate(R.id.action_moreFragment_to_blankFragment)
+            }
+            include.trainers.setOnClickListener{
+                findNavController().navigate(R.id.action_moreFragment_to_trainersFragment)
+            }
+            textView13.setOnClickListener{
+                findNavController().navigate(R.id.action_moreFragment_to_uploadInBodyFragment2)
+            }
+            textView16.setOnClickListener{
+                findNavController().navigate(R.id.action_moreFragment_to_contactUsFragment)
+            }
         }
     }
 

@@ -7,11 +7,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sedra.fitroad.R
 import com.sedra.fitroad.data.helper.Resource
@@ -27,8 +29,21 @@ class HomeFragment : Fragment() {
     val viewModel: HomeViewModel by viewModels()
     var binding: FragmentHomeBinding? = null
     private var progressDialog: Dialog? = null
-    private val adapter = ExerciseAdapter({})
-    private val foodAdapter = FoodSystemAdapter({})
+    private val adapter = ExerciseAdapter {
+        findNavController().navigate(
+            R.id.action_homeFragment_to_exerciseDetailsFragment, bundleOf(
+                "video" to it.Exercise_Video,
+                "name" to it.ExerciseName,
+            )
+        )
+    }
+    private val foodAdapter = FoodSystemAdapter {
+        findNavController().navigate(
+            R.id.action_homeFragment_to_foodSystemsFragment, bundleOf(
+                "food" to it,
+            )
+        )
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -41,7 +56,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeFlow()
         binding?.apply {
-            excerciseRv.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
+            excerciseRv.layoutManager = GridLayoutManager(context,2, GridLayoutManager.HORIZONTAL,false)
             excerciseRv.adapter = adapter
             foodRv.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
             foodRv.adapter = foodAdapter

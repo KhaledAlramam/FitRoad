@@ -37,6 +37,9 @@ class StageThreeFragment : Fragment() {
             include.textView5.text = "STEP 3 OF 7"
             val adapter = InterestsAdapter { inp -> }
 
+            include.imageView4.setOnClickListener {
+                findNavController().popBackStack()
+            }
             recyclerView.layoutManager = GridLayoutManager(requireContext(), 4)
             recyclerView.adapter = adapter
             adapter.submitList(listOf(

@@ -25,6 +25,9 @@ class StartingFragment : Fragment() {
         binding?.getStarted?.setOnClickListener{
             findNavController().navigate(R.id.action_startingFragment_to_stageOneFragment)
         }
+        binding?.textView4?.setOnClickListener{
+            findNavController().navigate(R.id.action_startingFragment_to_loginFragment)
+        }
     }
 
 

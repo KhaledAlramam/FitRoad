@@ -4,6 +4,7 @@ import android.util.Log
 import com.sedra.fitroad.data.helper.Resource
 import com.sedra.fitroad.data.model.ExerciseResponse
 import com.sedra.fitroad.data.model.FoodSystemsResponse
+import com.sedra.fitroad.data.model.LoginResponse
 import com.sedra.fitroad.data.model.SignUpResponse
 import com.sedra.fitroad.data.model.TrainerResponse
 import com.sedra.fitroad.data.remote.ApiService
@@ -78,6 +79,24 @@ class DataRepo @Inject constructor(
     suspend fun getExercises(): Resource<ExerciseResponse> {
         return try {
             val response = apiService.getExercises()
+            if (response.success == true) {
+                Resource.Success(response)
+            } else {
+                Resource.Error(response.message)
+            }
+        } catch (e: HttpException) {
+            Resource.Error(e.message())
+        } catch (e: IOException) {
+            Log.e("TAG", "signUp: $e", )
+            Resource.NetworkError()
+        } catch (e: Exception) {
+            Log.e("TAG", "signUp: $e", )
+            Resource.ServerError()
+        }
+    }
+    suspend fun login(email: String, password: String): Resource<LoginResponse> {
+        return try {
+            val response = apiService.login(email, password)
             if (response.success == true) {
                 Resource.Success(response)
             } else {

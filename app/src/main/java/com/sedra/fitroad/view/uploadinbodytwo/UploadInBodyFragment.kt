@@ -1,4 +1,4 @@
-package com.sedra.fitroad.view.register.uploadinbody
+package com.sedra.fitroad.view.uploadinbodytwo
 
 import android.app.Activity
 import android.app.Dialog
@@ -69,7 +69,7 @@ class UploadInBodyFragment : Fragment() {
                         showProgressBar()
                         delay(10000)
                         hideProgressBar()
-                        findNavController().navigate(R.id.action_uploadInBodyFragment_to_inBodyResultFragment)
+                        findNavController().navigate(R.id.action_uploadInBodyFragment2_to_inBodyResultTwoFragment)
                     }
                 } else {
                     Toast.makeText(context, "Please, Select Image first", Toast.LENGTH_SHORT).show()

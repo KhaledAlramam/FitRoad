@@ -46,10 +46,14 @@
 
         <TextView
             android:id="@+id/trainerSpecialist"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView11"
             app:layout_constraintTop_toBottomOf="@+id/trainerPhone" />
     </androidx.constraintlayout.widget.ConstraintLayout>

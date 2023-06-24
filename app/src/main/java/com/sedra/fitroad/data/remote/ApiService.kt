@@ -2,6 +2,7 @@ package com.sedra.fitroad.data.remote
 
 import com.sedra.fitroad.data.model.ExerciseResponse
 import com.sedra.fitroad.data.model.FoodSystemsResponse
+import com.sedra.fitroad.data.model.LoginResponse
 import com.sedra.fitroad.data.model.SignUpResponse
 import com.sedra.fitroad.data.model.TrainerResponse
 import retrofit2.http.Field
@@ -15,6 +16,15 @@ interface ApiService {
     companion object {
         const val BASE_URL = "http://fitroad.coders-island.com/api/"
     }
+
+
+    @Headers("Accept: application/json")
+    @POST("/api/user")
+    @FormUrlEncoded
+    suspend fun login(
+        @Field("email") email: String,
+        @Field("password") password: String,
+    ): LoginResponse
 
     @Headers("Accept: application/json")
     @POST("/api/user")

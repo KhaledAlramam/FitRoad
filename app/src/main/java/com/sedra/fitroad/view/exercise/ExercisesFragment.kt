@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -29,7 +30,14 @@ class ExercisesFragment : Fragment() {
     val viewModel: ExerciseViewModel by viewModels()
     var binding: FragmentExercisesBinding? = null
     private var progressDialog: Dialog? = null
-    private val adapter = ExerciseAdapter {}
+    private val adapter = ExerciseAdapter {
+        findNavController().navigate(
+            R.id.action_blankFragment_to_exerciseDetailsFragment, bundleOf(
+                "video" to it.Exercise_Video,
+                "name" to it.ExerciseName,
+            )
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

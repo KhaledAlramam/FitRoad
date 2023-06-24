@@ -1,6 +1,7 @@
 package com.sedra.fitroad.view.register.hoppies
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
@@ -14,6 +15,7 @@ class CustomViewHolder(val binding: ViewDataBinding) : RecyclerView.ViewHolder(b
 class InterestsAdapter(private val listener: (input: Int) -> Unit) :
     ListAdapter<Int, CustomViewHolder>(Companion) {
 
+    val positions = mutableListOf<Int>()
     companion object : DiffUtil.ItemCallback<Int>() {
         override fun areItemsTheSame(oldItem: Int, newItem: Int): Boolean {
             return false
@@ -35,8 +37,20 @@ class InterestsAdapter(private val listener: (input: Int) -> Unit) :
         val currentMovie = getItem(position)
         val itemBinding = holder.binding as AdapterInterestsBinding
         itemBinding.imageView7.load(currentMovie)
+        if (positions.contains(currentMovie)){
+            itemBinding.imageView9.visibility = View.VISIBLE
+        }else{
+            itemBinding.imageView9.visibility = View.GONE
+
+        }
         itemBinding.root.setOnClickListener {
+            if (positions.contains(currentMovie)){
+                positions.remove(currentMovie)
+            }else{
+                positions.add(currentMovie)
+            }
             listener(currentMovie)
+            notifyDataSetChanged()
         }
     }
 

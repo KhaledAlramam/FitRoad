@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -26,7 +27,13 @@ class TrainersFragment : Fragment() {
     val viewModel: TrainersViewModel by viewModels()
     var binding: FragmentTrainersBinding? = null
     private var progressDialog: Dialog? = null
-    private val adapter = TrainerAdapter {}
+    private val adapter = TrainerAdapter {
+        findNavController().navigate(
+            R.id.action_trainersFragment_to_trainerDetails, bundleOf(
+                "trainer" to it,
+            )
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
